@@ -41,6 +41,7 @@ router.post('/', isAuthenticated, isRole('patient'), async (req, res) => {
 // @desc    Get all appointments (Patient sees own, Doctor sees all)
 router.get('/', isAuthenticated, async (req, res) => {
     try {
+        console.log("## Hello from GET /api/appointments");
         let query = {};
         if (req.user.role === 'patient') {
             query = { patientId: req.user._id };
